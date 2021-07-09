@@ -1,0 +1,30 @@
+
+/* buttons shape */
+@mixin btnGreen {
+  background-color: $main-cyan;
+  border-radius: 2rem;
+  padding: 1rem;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0px 2px 3px rgba($color: #888888, $alpha: 0.3);
+  transition: box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  margin: 0 0.5rem;
+
+  &:hover{
+    box-shadow: 0px 2px 6px rgba($color: #555555, $alpha: 1.0);
+  }
+}
+
+@mixin elementBefore{
+  content: "";
+  background:  no-repeat center ;
+  height: 5vh;
+  width: 5vh;
+  top: 0;
+  left: 0;
+  transform: translateX(-50%);
+  position: absolute;
+}

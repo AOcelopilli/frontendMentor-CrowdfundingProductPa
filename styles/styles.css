@@ -1,0 +1,228 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap");
+/* Colors */
+/* RESET */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Commissioner", sans-serif;
+  font-size: 16px;
+}
+
+/* IMPORTS */
+/* buttons shape */
+/* STYLES */
+#about .project {
+  border-radius: calc(0.5rem + 0.2vw);
+  box-shadow: 0px 0px 2px rgba(136, 136, 136, 0.4);
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+h1, h2, h3, p {
+  padding: 1rem 0;
+}
+
+p {
+  color: #7a7a7a;
+}
+
+#header {
+  background: no-repeat center;
+  background-size: cover;
+  width: 100%;
+}
+
+#main {
+  display: grid;
+  place-items: center;
+}
+
+#main-container {
+  margin: 0 auto;
+  position: relative;
+  transform: translateY(-10vh);
+  width: 90%;
+}
+#main-container > * {
+  background-color: white;
+  border-radius: calc(0.5rem + 0.2vw);
+  box-shadow: 0px 1px 5px rgba(136, 136, 136, 0.2);
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+#main-container::before {
+  content: "";
+  background: no-repeat center;
+  height: 5vh;
+  width: 5vh;
+  top: 0;
+  left: 0;
+  transform: translateX(-50%);
+  position: absolute;
+  background-image: url(../../images/logo-mastercraft.svg);
+  height: 10vh;
+  width: 10vh;
+  top: -5vh;
+  left: 50%;
+}
+
+/* #main-container */
+#introduction {
+  padding-top: 3rem;
+}
+#introduction button {
+  background-color: #3cb4ac;
+  border-radius: 2rem;
+  padding: 1rem;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0px 2px 3px rgba(136, 136, 136, 0.3);
+  transition: box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  margin: 0 0.5rem;
+  margin-bottom: 1rem;
+}
+#introduction button:hover {
+  box-shadow: 0px 2px 6px #555555;
+}
+#introduction button:last-child {
+  background-color: rgba(122, 122, 122, 0.2);
+  color: black;
+  padding-left: 2rem;
+  position: relative;
+}
+#introduction button:last-child::before {
+  content: "";
+  background: no-repeat center;
+  height: 5vh;
+  width: 5vh;
+  top: 0;
+  left: 0;
+  transform: translateX(-50%);
+  position: absolute;
+  background-image: url(../../images/icon-bookmark.svg);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  transform: translateX(0%);
+}
+
+/* #introduction */
+#metrics span {
+  font-size: 2rem;
+  padding: 1rem 0 0;
+  font-weight: 700;
+}
+#metrics .metrics-ui {
+  width: 90%;
+  margin: 0 auto;
+  background-color: #eeeeee;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+#metrics .metrics-ui .metrics-percentage {
+  width: 75%;
+  height: 2vh;
+  background: #3cb4ac;
+  border-radius: 1rem;
+}
+
+#about {
+  text-align: left;
+  line-height: 1.5rem;
+}
+#about .projects-container {
+  width: 100%;
+  margin: 0 auto;
+}
+#about .project-info span {
+  color: #3cb4ac;
+  font-weight: 500;
+}
+#about .project-actions .goal p span {
+  font-size: 2rem;
+  color: black;
+  font-weight: 700;
+  padding: 0 0.5rem;
+}
+#about .project-actions button {
+  background-color: #3cb4ac;
+  border-radius: 2rem;
+  padding: 1rem;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0px 2px 3px rgba(136, 136, 136, 0.3);
+  transition: box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  margin: 0 0.5rem;
+  width: 60%;
+  font-size: 1rem;
+}
+#about .project-actions button:hover {
+  box-shadow: 0px 2px 6px #555555;
+}
+
+/* Mobile layout */
+@media (max-width: 780px) {
+  #header {
+    background-image: url(../../images/image-hero-mobile.jpg);
+    height: 50vh;
+  }
+
+  #main-container {
+    text-align: center;
+  }
+
+  #introduction button:first-child {
+    font-size: 1rem;
+    padding: 1rem 2rem;
+  }
+  #introduction button:last-child {
+    background: transparent;
+    color: transparent;
+    width: 1rem;
+    overflow: hidden;
+  }
+
+  /* #introduction */
+  .metrics-data > * {
+    position: relative;
+  }
+  .metrics-data > *::after {
+    content: "";
+    background: no-repeat center;
+    height: 5vh;
+    width: 5vh;
+    top: 0;
+    left: 0;
+    transform: translateX(-50%);
+    position: absolute;
+    background-color: rgba(122, 122, 122, 0.3);
+    top: 100%;
+    left: 50%;
+    width: 40%;
+    height: 1px;
+  }
+  .metrics-data > *:last-of-type:after {
+    background-color: transparent;
+  }
+
+  /* .metrics-data */
+}
+/* Desktop layout */
+@media (min-width: 780px) {
+  #header {
+    background-image: url(../../images/image-hero-desktop.jpg);
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

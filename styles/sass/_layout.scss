@@ -1,0 +1,209 @@
+/* IMPORTS */
+@import "components";
+
+/* STYLES */
+
+%card{
+  border-radius: calc(0.5rem + 0.2vw);
+  box-shadow: 0px 0px 2px rgba($color: #888888, $alpha: 0.4);
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+h1,h2,h3, p{
+    padding: 1rem 0;
+}
+
+p{
+    color: $main-black-50;
+}
+
+#header{
+  background:  no-repeat center;
+  background-size: cover;
+  width: 100%;
+}
+
+#main{
+  display: grid;
+  place-items: center;
+}
+
+#main-container{
+  margin: 0 auto;
+  position: relative;
+  transform: translateY(-10vh);
+  width: 90%;
+
+  & > *{
+    background-color: white;
+    border-radius: calc(0.5rem + 0.2vw);
+    box-shadow: 0px 1px 5px rgba($color: #888888, $alpha: 0.2);
+    margin-bottom: 2rem;
+    padding: 1rem;
+  }
+
+  &::before{
+    @include elementBefore;
+    background-image: url(../../images/logo-mastercraft.svg)  ;
+    height: 10vh;
+    width: 10vh;
+    top: -5vh;
+    left: 50%;
+  }
+} /* #main-container */
+
+#introduction{
+  padding-top: 3rem;
+
+  button{
+    @include btnGreen;
+    margin-bottom: 1rem;
+
+    &:last-child{
+      background-color: rgba($color: $main-black-50, $alpha: 0.2);
+      color: $main-black;
+      padding-left: 2rem;
+      position: relative;
+
+      &::before{
+        @include elementBefore;
+        background-image: url(../../images/icon-bookmark.svg);
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        transform: translateX(0%);
+      }
+    }
+  }
+} /* #introduction */
+
+#metrics{
+
+  span{
+    font-size: 2rem;
+    padding: 1rem 0 0;
+    font-weight: 700;
+  }
+
+
+  .metrics-ui{
+  width: 90%;
+  margin: 0 auto;
+  background-color: #eeeeee;
+  border-radius: 1rem;
+  overflow: hidden;
+
+  .metrics-percentage{
+    width: 75%;
+    height: 2vh;
+    background: $main-cyan;
+    border-radius: 1rem;
+  }
+}
+
+}
+
+
+
+#about{
+  text-align: left;
+  line-height: 1.5rem;
+  
+  .projects-container{
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .project{
+    @extend %card;
+  }
+
+  .project-info{
+    span{
+      color: $main-cyan;
+      font-weight: 500;
+    }
+  }
+
+  .project-actions{
+    .goal{
+      p{
+        span{
+          font-size: 2rem;
+          color: $main-black;
+          font-weight: 700;
+          padding: 0 0.5rem
+        }
+      }
+    }
+    
+    button{
+      @include btnGreen;
+      width: 60%;
+      font-size: 1rem;
+    }
+  }
+
+
+}
+
+
+/* Mobile layout */
+@media (max-width: 780px){
+
+  #header {
+    background-image: url(../../images/image-hero-mobile.jpg);
+    height: 50vh;
+  }
+
+  #main-container{
+    text-align: center;
+  }
+
+  #introduction {
+
+    button:first-child{
+      font-size: 1rem;
+      padding: 1rem 2rem;
+    }
+
+    button:last-child{
+      background: transparent;
+      color: transparent;
+      width: 1rem;
+      overflow: hidden;
+    }
+  } /* #introduction */
+
+
+.metrics-data{
+  
+  & > *{
+    position: relative;
+
+    &::after{
+      @include elementBefore;
+      background-color: rgba($color: $main-black-50, $alpha: 0.3);
+      top: 100%;
+      left: 50%;
+      width: 40%;
+      height: 1px;
+    }
+
+    &:last-of-type:after{
+      background-color: transparent;
+    }
+  }
+
+
+} /* .metrics-data */
+
+}
+/* Desktop layout */
+@media (min-width: 780px){
+  #header{
+    background-image: url(../../images/image-hero-desktop.jpg);
+  }
+
+}

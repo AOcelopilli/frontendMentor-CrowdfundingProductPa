@@ -1,0 +1,19 @@
+{
+  "name": "crowdfunding-product-page-main",
+  "version": "0.0.1",
+  "description": "This is a solution to the [Crowdfunding product page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/crowdfunding-product-page-7uvcZe7ZR). Frontend Mentor challenges help you improve your coding skills by building realistic projects.",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch styles/sass/styles.scss styles/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AOcelopilli/frontendMentor-CrowdfundingProductPa.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AOcelopilli/frontendMentor-CrowdfundingProductPa/issues"
+  },
+  "homepage": "https://github.com/AOcelopilli/frontendMentor-CrowdfundingProductPa#readme"
+}
