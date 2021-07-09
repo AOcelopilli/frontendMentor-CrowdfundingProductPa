@@ -40,6 +40,7 @@
           <button>Bookmark</button>
         </div>
       </section> <!-- Introduction -->
+
       <section id="metrics">
         <div class="metrics-data">
           <div class="metrics-backed">
@@ -55,10 +56,12 @@
             <p>days left</p>
           </div>
         </div><!-- .metrics data -->
+
         <div class="metrics-ui">
           <div class="metrics-percentage"></div>
         </div>
       </section> <!-- metrics -->
+
       <section id="about">
         <div class="about-introduction">
           <h2>About this project</h2>
@@ -137,108 +140,119 @@
   <!-- Selection modal start -->
 
   <div id="modal-back">
-    <div class="about-introduction">
-      <h2>Back this project</h2>
-      <p>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
-    </div> <!-- about intro -->
-    <div class="projects-container">
+    <div id="modal-back-container">
+      <div class="about-introduction">
+        <h2>Back this project</h2>
+        <p>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
+      </div> <!-- about intro -->
 
-      <form id="form">
-
-        <div class="project">
-          <div class="project-info">
-            <input type="radio" name="project" id="pledge">
-            <label for="pledge"> Plege with no reward</label>
-          </div>
-          <div class="project-desc">
-            <p>Choose to support us without a reward if you simply believe in our project. As a backer,
-              you will be signed up to receive product updates via email.</p>
-          </div>
-          <div class="project-actions">
-            <div class="pledge">
+      <div class="projects-container">
+        <form id="form">
+          <div class="project">
+            <div class="project-info">
+              <input type="checkbox"" name=" project" id="pledge">
+              <label for="pledge"> Plege with no reward</label>
+            </div>
+            <div class="project-desc">
+              <p>Choose to support us without a reward if you simply believe in our project. As a backer,
+                you will be signed up to receive product updates via email.</p>
+            </div>
+            <div class="project-actions">
               <p>Enter your email</p>
-              <input type="email" name="email" id="email">
+              <div class="pledge">
+                <input type="email" name="email" id="email">
+                <input type="submit" value="Continue">
+              </div>
             </div>
-            <input type="submit" value="Continue">
-          </div>
-        </div> <!-- project -->
+          </div> <!-- project -->
 
-        <div class="project">
-          <div class="project-info">
-            <input type="radio" name="project" id="bamboo">
-            <label for="bamboo">Bamboo Stand</label>
-            <span>Pledge $25 or more</span>
-          </div>
-
-          <div class="project-desc">
-            <p>You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and
-              you’ll be added to a special Backer member list.</p>
-          </div>
-
-          <p>101 <span>left</span></p>
-
-          <div class="project-actions">
-            <p>Enter your pledge</p>
-            <div class="pledge">
-              <input type="number" name="plege" id="number" min="25" max="100" value="25">
+          <div class="project">
+            <div class="project-info">
+              <input type="checkbox"" name=" project" id="bamboo">
+              <label for="bamboo">Bamboo Stand</label>
+              <span>Pledge $25 or more</span>
             </div>
-            <input type="submit" value="Continue">
-          </div>
-        </div> <!-- project -->
 
-        <div class="project">
-          <div class="project-info">
-            <input type="radio" name="project" id="bamboo">
-            <label for="bamboo">Black Edition Stand</label>
-            <span>Pledge $75 or more</span>
-          </div>
-
-          <div class="project-desc">
-            <p>You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer
-              member list. Shipping is included.</p>
-          </div>
-
-          <p>64 <span>left</span></p>
-
-          <div class="project-actions">
-            <p>Enter your pledge</p>
-            <div class="pledge">
-              <input type="number" name="plege" id="number" min="75" max="200" value="75">
+            <div class="project-desc">
+              <p>You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign,
+                and
+                you’ll be added to a special Backer member list.</p>
             </div>
-            <input type="submit" value="Continue">
-          </div>
-        </div> <!-- project -->
 
-        <div class="project">
-          <div class="project-info">
-            <input type="radio" name="project" id="bamboo">
-            <label for="bamboo">Mahogany Special Edition</label>
-            <span>Pledge $200 or more</span>
-          </div>
+            <p><span>101</span> left</p>
 
-          <div class="project-desc">
-            <p>You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added
-              to our Backer member list. Shipping is included.</p>
-          </div>
-
-          <p>0 <span>left</span></p>
-
-          <div class="project-actions">
-            <p>Enter your pledge</p>
-            <div class="pledge">
-              <input type="number" name="plege" id="number" min="200" max="400" value="200">
+            <div class="project-actions">
+              <p>Enter your pledge</p>
+              <div class="pledge">
+                <span>
+                  <input type="number" name="plege" id="number" min="25" max="100" value="25">
+                </span>
+                <input type="submit" value="Continue">
+              </div>
             </div>
-            <input type="submit" value="Continue">
-          </div>
-        </div> <!-- project -->
-      </form>
+          </div> <!-- project -->
+
+          <div class="project">
+            <div class="project-info">
+              <input type="checkbox"" name=" project" id="black-edition">
+              <label for="black-edition">Black Edition Stand</label>
+              <span>Pledge $75 or more</span>
+            </div>
+
+            <div class="project-desc">
+              <p>You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer
+                member list. Shipping is included.</p>
+            </div>
+
+            <p><span>64</span> left</p>
+
+            <div class="project-actions">
+              <p>Enter your pledge</p>
+              <div class="pledge">
+                <span>
+                  <input type="number" name="plege" id="number" min="75" max="200" value="75">
+                </span>
+                <input type="submit" value="Continue">
+              </div>
+            </div>
+          </div> <!-- project -->
+
+          <div class="project">
+            <div class="project-info">
+              <input type="checkbox"" name=" project" id="Mahogany">
+              <label for="Mahogany">Mahogany Special Edition</label>
+              <span>Pledge $200 or more</span>
+            </div>
+
+            <div class="project-desc">
+              <p>You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be
+                added
+                to our Backer member list. Shipping is included.</p>
+            </div>
+
+            <p><span>0</span> left</p>
+
+            <div class="project-actions">
+              <p>Enter your pledge</p>
+              <div class="pledge">
+                <span>
+                  <input type="number" name="plege" id="number" min="200" max="400" value="200">
+                </span>
+                <input type="submit" value="Continue">
+              </div>
+            </div>
+          </div> <!-- project -->
+        </form>
+      </div> <!-- projects container -->
     </div>
+
   </div>
 
   <div id="modal-success">
     <div class="success-icon"></div>
     <div class="success-text">
-      <p>Thanks for your support!
+      <h3>Thanks for your support!</h3>
+      <p>
         Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
         an email once our campaign is completed.
         Got it!</p>

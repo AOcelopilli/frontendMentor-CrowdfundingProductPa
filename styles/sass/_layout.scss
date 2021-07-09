@@ -3,39 +3,42 @@
 
 /* STYLES */
 
-%card{
+%card {
   border-radius: calc(0.5rem + 0.2vw);
-  box-shadow: 0px 0px 2px rgba($color: #888888, $alpha: 0.4);
+  box-shadow: 0px 0px 2px rgba($color: #171717, $alpha: 0.6);
   margin-bottom: 2rem;
   padding: 1rem;
 }
 
-h1,h2,h3, p{
-    padding: 1rem 0;
+h1,
+h2,
+h3,
+p {
+  padding: 1rem 0;
 }
 
-p{
-    color: $main-black-50;
+p {
+  color: $main-black-50;
 }
 
-#header{
-  background:  no-repeat center;
+#header {
+  background: no-repeat center;
   background-size: cover;
   width: 100%;
 }
 
-#main{
+#main {
   display: grid;
   place-items: center;
 }
 
-#main-container{
+#main-container {
   margin: 0 auto;
   position: relative;
   transform: translateY(-10vh);
   width: 90%;
 
-  & > *{
+  & > * {
     background-color: white;
     border-radius: calc(0.5rem + 0.2vw);
     box-shadow: 0px 1px 5px rgba($color: #888888, $alpha: 0.2);
@@ -43,9 +46,9 @@ p{
     padding: 1rem;
   }
 
-  &::before{
+  &::before {
     @include elementBefore;
-    background-image: url(../../images/logo-mastercraft.svg)  ;
+    background-image: url(../../images/logo-mastercraft.svg);
     height: 10vh;
     width: 10vh;
     top: -5vh;
@@ -53,20 +56,20 @@ p{
   }
 } /* #main-container */
 
-#introduction{
+#introduction {
   padding-top: 3rem;
 
-  button{
+  button {
     @include btnGreen;
     margin-bottom: 1rem;
 
-    &:last-child{
+    &:last-child {
       background-color: rgba($color: $main-black-50, $alpha: 0.2);
       color: $main-black;
       padding-left: 2rem;
       position: relative;
 
-      &::before{
+      &::before {
         @include elementBefore;
         background-image: url(../../images/icon-bookmark.svg);
         width: 3rem;
@@ -78,97 +81,298 @@ p{
   }
 } /* #introduction */
 
-#metrics{
-
-  span{
+#metrics {
+  span {
     font-size: 2rem;
     padding: 1rem 0 0;
     font-weight: 700;
   }
 
-
-  .metrics-ui{
-  width: 90%;
-  margin: 0 auto;
-  background-color: #eeeeee;
-  border-radius: 1rem;
-  overflow: hidden;
-
-  .metrics-percentage{
-    width: 75%;
-    height: 2vh;
-    background: $main-cyan;
+  .metrics-ui {
+    width: 90%;
+    margin: 0 auto;
+    background-color: #eeeeee;
     border-radius: 1rem;
+    overflow: hidden;
+
+    .metrics-percentage {
+      width: 75%;
+      height: 2vh;
+      background: $main-cyan;
+      border-radius: 1rem;
+    }
   }
-}
+} /* #metrics */
 
-}
-
-
-
-#about{
+#about {
   text-align: left;
   line-height: 1.5rem;
-  
-  .projects-container{
+
+  .projects-container {
     width: 100%;
     margin: 0 auto;
   }
 
-  .project{
+  .project {
     @extend %card;
   }
 
-  .project-info{
-    span{
+  .project-info {
+    span {
       color: $main-cyan;
       font-weight: 500;
     }
   }
 
-  .project-actions{
-    .goal{
-      p{
-        span{
+  .project-actions {
+    .goal {
+      p {
+        span {
           font-size: 2rem;
           color: $main-black;
           font-weight: 700;
-          padding: 0 0.5rem
+          padding: 0 0.5rem;
         }
       }
     }
-    
-    button{
+
+    button {
       @include btnGreen;
       width: 60%;
       font-size: 1rem;
     }
   }
+} /* #about */
 
-
+#modal-back {
+  display: none;
+  position: absolute;
+  background-color: rgba($color: $main-black, $alpha: 0.6);
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  padding: 3rem 0;
+  z-index: 5;
 }
 
+#modal-back-container {
+  width: 90%;
+  margin: 0 auto;
+  background-color: white;
+  padding: 1rem;
+  border-radius: calc(0.5rem + 0.5vw);
+
+  .project {
+    @extend %card;
+
+    &:first-child {
+      .pledge {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      input[type="email"] {
+        margin: 1rem auto;
+        outline: none;
+        border: thin solid $main-black-50;
+
+        &:focus {
+          box-shadow: 0px 1px 6px rgba($color: $main-black, $alpha: 0.25);
+          border: thin solid $main-black;
+        }
+      }
+    }
+  }
+
+  .project-info {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-left: 3rem;
+
+    label {
+      cursor: pointer;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    input[type="checkbox"] {
+      height: 1.5rem;
+      width: 1.5rem;
+      border-radius: 50%;
+      position: absolute;
+      left: 5%;
+      top: 10%;
+      visibility: hidden;
+      cursor: pointer;
+
+      &::before {
+        @include elementBefore;
+        border-radius: 50%;
+        border: thin solid rgba($color: $main-black-50, $alpha: 0.2);
+        height: 1.5rem;
+        width: 1.5rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        visibility: visible;
+      }
+
+      &:checked {
+        &::after {
+          @include elementBefore;
+          background-color: $main-cyan;
+          border-radius: 50%;
+          height: 0.75rem;
+          width: 0.75rem;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          visibility: visible;
+        }
+      }
+    }
+
+    span {
+      color: $main-cyan;
+    }
+  }
+
+  .project-desc {
+    p {
+      line-height: 1.5rem;
+      color: $main-black-50;
+    }
+  }
+
+  & p {
+    span {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: $main-black;
+      margin-right: 0.5rem;
+    }
+  }
+
+  .project-actions {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    padding-top: 1rem;
+
+    &::before {
+      @include elementBefore;
+      background-color: rgba($color: $main-black-50, $alpha: 0.3);
+      height: 1px;
+      width: 113%;
+      top: 0;
+      left: 50%;
+    }
+
+    .pledge {
+      display: flex;
+
+      span {
+        width: 44%;
+        margin-right: 1rem;
+        position: relative;
+
+        &::before {
+          @include elementBefore;
+          content: "$";
+          left: 10%;
+          top: 28%;
+          transform: translateX(0%);
+          z-index: 10;
+          font-weight: bolder;
+          color: rgba($color: $main-black-50, $alpha: 0.5);
+        }
+      }
+    }
+
+    input[type="email"] {
+      width: 100%;
+      height: 2rem;
+      border-radius: 1rem;
+      padding: 1rem;
+    }
+
+    input[type="number"],
+    input[type="submit"] {
+      @include btnGreen;
+      width: 44%;
+    }
+
+    input[type="number"] {
+      background-color: white;
+      color: $main-black;
+      padding-left: 2rem;
+      border: thin solid rgba($color: #888888, $alpha: 0.2);
+      box-shadow: 0 0 0 transparent;
+      position: relative;
+      width: 100%;
+
+      &:hover {
+        box-shadow: 0 0 0 transparent;
+      }
+    }
+  }
+}
+
+#modal-success {
+  display: none;
+
+  @extend %card;
+  background-color: white;
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  width: 90%;
+  min-height: 50vh;
+  text-align: center;
+  padding: 1rem;
+
+  .success-icon {
+    background: url(../../images/icon-check.svg) no-repeat center;
+    background-size: cover;
+    height: 10vh;
+    width: 10vh;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  p {
+    line-height: 1.5rem;
+  }
+
+  .success-actions {
+    button {
+      @include btnGreen;
+      width: 40%;
+    }
+  }
+}
 
 /* Mobile layout */
-@media (max-width: 780px){
-
+@media (max-width: 780px) {
   #header {
     background-image: url(../../images/image-hero-mobile.jpg);
     height: 50vh;
   }
 
-  #main-container{
+  #main-container {
     text-align: center;
   }
 
   #introduction {
-
-    button:first-child{
+    button:first-child {
       font-size: 1rem;
       padding: 1rem 2rem;
     }
 
-    button:last-child{
+    button:last-child {
       background: transparent;
       color: transparent;
       width: 1rem;
@@ -176,34 +380,28 @@ p{
     }
   } /* #introduction */
 
+  .metrics-data {
+    & > * {
+      position: relative;
 
-.metrics-data{
-  
-  & > *{
-    position: relative;
+      &::after {
+        @include elementBefore;
+        background-color: rgba($color: $main-black-50, $alpha: 0.3);
+        top: 100%;
+        left: 50%;
+        width: 40%;
+        height: 1px;
+      }
 
-    &::after{
-      @include elementBefore;
-      background-color: rgba($color: $main-black-50, $alpha: 0.3);
-      top: 100%;
-      left: 50%;
-      width: 40%;
-      height: 1px;
+      &:last-of-type:after {
+        background-color: transparent;
+      }
     }
-
-    &:last-of-type:after{
-      background-color: transparent;
-    }
-  }
-
-
-} /* .metrics-data */
-
+  } /* .metrics-data */
 }
 /* Desktop layout */
-@media (min-width: 780px){
-  #header{
+@media (min-width: 780px) {
+  #header {
     background-image: url(../../images/image-hero-desktop.jpg);
   }
-
 }
