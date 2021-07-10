@@ -30,7 +30,7 @@
 }
 
 @mixin hideElemenet {
-  animation: hide 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: hide 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 
   @keyframes hide {
     from {

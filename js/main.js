@@ -8,26 +8,89 @@ const d = document,
   $modalSuccess = d.getElementById("modal-success");
 
 d.addEventListener("click", (e) => {
-  /* Show modal */
+  /* Show modal menu mobile */
   if (e.target == $navBtn) {
     $body.classList.toggle("modal");
     $navContainer.classList.toggle("modal");
   }
 
-  /* Open modal back */
+  /* 
+    - Handle click of each project in main-container
+    - Open modal back projects
+    - Scroll into the project selected
+    - Add class active
+  */
+
+  if (e.target.matches("[data-1]")) {
+    let $modal = d.querySelector("[data-1-modal]");
+
+    $body.classList.toggle("modal");
+    $modalBack.classList.toggle("modal");
+
+    setTimeout(() => {
+      $modal.scrollIntoView();
+    }, 200);
+
+    setTimeout(() => {
+      $modal.classList.toggle("active");
+      d.querySelector("[data-1-modal] input[type='checkbox']").setAttribute(
+        "checked",
+        ""
+      );
+    }, 1000);
+  }
+
+  if (e.target.matches("[data-2]")) {
+    let $modal = d.querySelector("[data-2-modal]");
+
+    $body.classList.toggle("modal");
+    $modalBack.classList.toggle("modal");
+
+    setTimeout(() => {
+      $modal.scrollIntoView();
+    }, 200);
+
+    setTimeout(() => {
+      $modal.classList.toggle("active");
+      d.querySelector("[data-2-modal] input[type='checkbox']").setAttribute(
+        "checked",
+        ""
+      );
+    }, 1000);
+  }
+
+  if (e.target.matches("[data-3]")) {
+    let $modal = d.querySelector("[data-3-modal]");
+
+    $body.classList.toggle("modal");
+    $modalBack.classList.toggle("modal");
+
+    setTimeout(() => {
+      $modal.scrollIntoView();
+    }, 200);
+
+    setTimeout(() => {
+      $modal.classList.toggle("active");
+      d.querySelector("[data-3-modal] input[type='checkbox']").setAttribute(
+        "checked",
+        ""
+      );
+    }, 1000);
+  }
+
+  /* Open modal back projects */
   if (e.target == $backBtn) {
     $body.classList.toggle("modal");
     $modalBack.classList.toggle("modal");
   }
 
-  /* Close modal back */
-  // TODO: Handle click to close modal back
+  // Handle click to close modal back projects
   if (e.target == $btnCloseBack) {
     $body.classList.toggle("modal");
     $modalBack.classList.toggle("modal");
   }
 
-  // TODO: Handle click of checkbox and add the clase 'active' to the card.
+  // Handle click of checkbox and add the clase 'active' to the card.
   if (e.target.matches("input[type='checkbox']")) {
     e.target.parentNode.parentNode.classList.toggle("active");
   }

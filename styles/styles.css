@@ -2,7 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap");
 /* Colors */
 /* RESET */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -11,6 +13,7 @@
 html {
   font-family: "Commissioner", sans-serif;
   font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 /* IMPORTS */
@@ -185,7 +188,7 @@ p {
   min-height: 100vh;
   padding: 3rem 0;
   z-index: 5;
-  animation: hide 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: hide 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 @keyframes hide {
   from {
@@ -248,7 +251,7 @@ p {
   background-color: white;
   padding: 1rem;
   border-radius: calc(0.5rem + 0.5vw);
-  animation: hide 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: hide 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 @keyframes hide {
   from {
@@ -287,6 +290,9 @@ p {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+#modal-back-container .project {
+  scroll-margin-top: 20vh;
 }
 #modal-back-container .project:first-child .pledge {
   flex-direction: column;
@@ -585,9 +591,30 @@ p {
   #nav-container.modal {
     z-index: 20;
     position: absolute;
+    animation: show 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  }
+  @keyframes show {
+    from {
+      visibility: hidden;
+      opacity: 0;
+    }
+    to {
+      visibility: visible;
+      opacity: 1;
+    }
   }
   #nav-container.modal .menu-items {
-    display: block;
+    animation: show 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  }
+  @keyframes show {
+    from {
+      visibility: hidden;
+      opacity: 0;
+    }
+    to {
+      visibility: visible;
+      opacity: 1;
+    }
   }
 
   #logo {
@@ -627,7 +654,6 @@ p {
   }
   #navbar .menu-items {
     overflow: hidden;
-    display: none;
     position: absolute;
     top: 15vh;
     left: 5%;
@@ -637,6 +663,19 @@ p {
     border-radius: 0.5rem;
     z-index: 20;
     box-shadow: 0 3px 6px rgba(122, 122, 122, 0.5);
+    animation: hide 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  }
+  @keyframes hide {
+    from {
+      visibility: visible;
+      opacity: 1;
+      display: block;
+    }
+    to {
+      visibility: hidden;
+      opacity: 0;
+      display: block;
+    }
   }
   #navbar .menu-items li {
     padding: 1.5rem 1rem;
