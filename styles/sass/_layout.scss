@@ -145,14 +145,43 @@ p {
 } /* #about */
 
 #modal-back {
-  display: none;
   position: absolute;
-  background-color: rgba($color: $main-black, $alpha: 0.6);
   top: 0;
   left: 0;
   min-height: 100vh;
   padding: 3rem 0;
   z-index: 5;
+  @include hideElemenet;
+
+  &.modal {
+    position: absolute;
+    z-index: 20;
+    display: block;
+    @include showElemenet;
+
+    #modal-back-container {
+      @include showElemenet;
+    }
+  }
+
+  .project {
+    transition: box-shadow 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+    &.active {
+      box-shadow: 0 0 0 4px $main-cyan;
+
+      .project-actions {
+        height: 20vh;
+        padding-top: 1rem;
+      }
+    }
+
+    &:first-child.active {
+      .project-actions {
+        height: 30vh;
+      }
+    }
+  }
 }
 
 #modal-back-container {
@@ -161,6 +190,28 @@ p {
   background-color: white;
   padding: 1rem;
   border-radius: calc(0.5rem + 0.5vw);
+  @include hideElemenet;
+
+  button {
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    cursor: pointer;
+    right: 10%;
+
+    &::before {
+      @include elementBefore;
+      background-image: url(../../images/icon-close-modal.svg);
+      background-size: cover;
+      height: 100%;
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
 
   .project {
     @extend %card;
@@ -175,10 +226,11 @@ p {
         margin: 1rem auto;
         outline: none;
         border: thin solid $main-black-50;
+        transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
         &:focus {
-          box-shadow: 0px 1px 6px rgba($color: $main-black, $alpha: 0.25);
-          border: thin solid $main-black;
+          box-shadow: 1px 3px 6px rgba($color: $main-black, $alpha: 0.25);
+          border: thin solid $main-cyan;
         }
       }
     }
@@ -259,7 +311,9 @@ p {
     flex-direction: column;
     text-align: center;
     position: relative;
-    padding-top: 1rem;
+    height: 0vh;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.39, 0.575, 0.565, 1);
 
     &::before {
       @include elementBefore;
@@ -292,7 +346,7 @@ p {
     }
 
     input[type="email"] {
-      width: 100%;
+      width: 90%;
       height: 2rem;
       border-radius: 1rem;
       padding: 1rem;
@@ -322,7 +376,6 @@ p {
 
 #modal-success {
   display: none;
-
   @extend %card;
   background-color: white;
   position: absolute;
@@ -357,6 +410,19 @@ p {
 
 /* Mobile layout */
 @media (max-width: 780px) {
+  body.modal {
+    &::before {
+      @include elementBefore;
+      background-color: rgba($color: $main-black, $alpha: 0.5);
+      min-height: 100%;
+      width: 100%;
+      transform: translate(0);
+      position: fixed;
+      z-index: 10;
+      @include showElemenet;
+    }
+  }
+
   #header {
     background-image: url(../../images/image-hero-mobile.jpg);
     height: 50vh;
@@ -398,6 +464,89 @@ p {
       }
     }
   } /* .metrics-data */
+
+  #nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 1rem;
+
+    &.modal {
+      z-index: 20;
+      position: absolute;
+
+      .menu-items {
+        display: block;
+      }
+    }
+  }
+
+  #logo {
+    height: 4vh;
+    width: 50%;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  #navbar {
+    button {
+      height: 1.5rem;
+      width: 1.5rem;
+      background-color: transparent;
+      border: none;
+      position: relative;
+      cursor: pointer;
+
+      &::before {
+        @include elementBefore;
+        background-image: url(../../images/icon-hamburger.svg);
+        background-size: cover;
+        height: 100%;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .menu-items {
+      overflow: hidden;
+      display: none;
+      position: absolute;
+      top: 15vh;
+      left: 5%;
+      width: 90%;
+      background-color: white;
+      list-style: none;
+      border-radius: 0.5rem;
+      z-index: 20;
+      box-shadow: 0 3px 6px rgba($color: $main-black-50, $alpha: 0.5);
+
+      li {
+        padding: 1.5rem 1rem;
+        border-bottom: thin solid rgba($color: $main-black-50, $alpha: 0.2);
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        border-radius: 0 0 0.5rem 0;
+
+        &:hover {
+          background-color: #f1f1f150;
+          box-shadow: inset 0px 0px 6px rgba($color: $main-black, $alpha: 0.25);
+          color: $main-cyan-dark;
+        }
+      }
+    }
+  }
+
+  .about-introducion {
+    p {
+      font-size: 0.9rem;
+    }
+  }
 }
 /* Desktop layout */
 @media (min-width: 780px) {

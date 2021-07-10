@@ -20,7 +20,7 @@
         <img src="images/logo.svg" alt="logo">
       </div>
       <nav id="navbar">
-        <button id="navbar-btn-hamburguer">=</button>
+        <button id="navbar-btn-hamburguer"></button>
         <ul class="menu-items">
           <li>About</li>
           <li>Discover</li>
@@ -36,7 +36,7 @@
         <h1>Mastercraft Bamboo Monitor Riser</h1>
         <p>A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
         <div class="actions">
-          <button>Back this project</button>
+          <button id="back-project">Back this project</button>
           <button>Bookmark</button>
         </div>
       </section> <!-- Introduction -->
@@ -141,6 +141,7 @@
 
   <div id="modal-back">
     <div id="modal-back-container">
+      <button id="btn-close-back"></button>
       <div class="about-introduction">
         <h2>Back this project</h2>
         <p>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
@@ -160,7 +161,8 @@
             <div class="project-actions">
               <p>Enter your email</p>
               <div class="pledge">
-                <input type="email" name="email" id="email">
+                <input type="email" name="email" id="email"
+                  pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$">
                 <input type="submit" value="Continue">
               </div>
             </div>
@@ -261,6 +263,7 @@
       <button>Got it!</button>
     </div>
   </div>
+  <script src="js/main.js"></script>
 </body>
 
 </html>

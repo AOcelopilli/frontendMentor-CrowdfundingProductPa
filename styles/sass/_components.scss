@@ -28,3 +28,37 @@
   transform: translateX(-50%);
   position: absolute;
 }
+
+@mixin hideElemenet {
+  animation: hide 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+
+  @keyframes hide {
+    from {
+      visibility: visible;
+      opacity: 1;
+      display: block;
+    }
+
+    to {
+      visibility: hidden;
+      opacity: 0;
+      display: block;
+    }
+  }
+}
+
+@mixin showElemenet {
+  animation: show 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+
+  @keyframes show {
+    from {
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    to {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}

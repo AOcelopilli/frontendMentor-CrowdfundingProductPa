@@ -179,14 +179,67 @@ p {
 
 /* #about */
 #modal-back {
-  display: none;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.6);
   top: 0;
   left: 0;
   min-height: 100vh;
   padding: 3rem 0;
   z-index: 5;
+  animation: hide 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+@keyframes hide {
+  from {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+    display: block;
+  }
+}
+#modal-back.modal {
+  position: absolute;
+  z-index: 20;
+  display: block;
+  animation: show 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+@keyframes show {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+#modal-back.modal #modal-back-container {
+  animation: show 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+@keyframes show {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+#modal-back .project {
+  transition: box-shadow 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+#modal-back .project.active {
+  box-shadow: 0 0 0 4px #3cb4ac;
+}
+#modal-back .project.active .project-actions {
+  height: 20vh;
+  padding-top: 1rem;
+}
+#modal-back .project:first-child.active .project-actions {
+  height: 30vh;
 }
 
 #modal-back-container {
@@ -195,6 +248,45 @@ p {
   background-color: white;
   padding: 1rem;
   border-radius: calc(0.5rem + 0.5vw);
+  animation: hide 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+@keyframes hide {
+  from {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+    display: block;
+  }
+}
+#modal-back-container button {
+  height: 1.5rem;
+  width: 1.5rem;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  cursor: pointer;
+  right: 10%;
+}
+#modal-back-container button::before {
+  content: "";
+  background: no-repeat center;
+  height: 5vh;
+  width: 5vh;
+  top: 0;
+  left: 0;
+  transform: translateX(-50%);
+  position: absolute;
+  background-image: url(../../images/icon-close-modal.svg);
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 #modal-back-container .project:first-child .pledge {
   flex-direction: column;
@@ -204,10 +296,11 @@ p {
   margin: 1rem auto;
   outline: none;
   border: thin solid #7a7a7a;
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 #modal-back-container .project:first-child input[type=email]:focus {
-  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25);
-  border: thin solid black;
+  box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.25);
+  border: thin solid #3cb4ac;
 }
 #modal-back-container .project-info {
   display: flex;
@@ -284,7 +377,9 @@ p {
   flex-direction: column;
   text-align: center;
   position: relative;
-  padding-top: 1rem;
+  height: 0vh;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 #modal-back-container .project-actions::before {
   content: "";
@@ -327,7 +422,7 @@ p {
   color: rgba(122, 122, 122, 0.5);
 }
 #modal-back-container .project-actions input[type=email] {
-  width: 100%;
+  width: 90%;
   height: 2rem;
   border-radius: 1rem;
   padding: 1rem;
@@ -409,6 +504,34 @@ p {
 
 /* Mobile layout */
 @media (max-width: 780px) {
+  body.modal::before {
+    content: "";
+    background: no-repeat center;
+    height: 5vh;
+    width: 5vh;
+    top: 0;
+    left: 0;
+    transform: translateX(-50%);
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    min-height: 100%;
+    width: 100%;
+    transform: translate(0);
+    position: fixed;
+    z-index: 10;
+    animation: show 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  }
+  @keyframes show {
+    from {
+      visibility: hidden;
+      opacity: 0;
+    }
+    to {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
   #header {
     background-image: url(../../images/image-hero-mobile.jpg);
     height: 50vh;
@@ -453,6 +576,84 @@ p {
   }
 
   /* .metrics-data */
+  #nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 1rem;
+  }
+  #nav-container.modal {
+    z-index: 20;
+    position: absolute;
+  }
+  #nav-container.modal .menu-items {
+    display: block;
+  }
+
+  #logo {
+    height: 4vh;
+    width: 50%;
+    overflow: hidden;
+  }
+  #logo img {
+    height: 100%;
+    width: 100%;
+  }
+
+  #navbar button {
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: transparent;
+    border: none;
+    position: relative;
+    cursor: pointer;
+  }
+  #navbar button::before {
+    content: "";
+    background: no-repeat center;
+    height: 5vh;
+    width: 5vh;
+    top: 0;
+    left: 0;
+    transform: translateX(-50%);
+    position: absolute;
+    background-image: url(../../images/icon-hamburger.svg);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #navbar .menu-items {
+    overflow: hidden;
+    display: none;
+    position: absolute;
+    top: 15vh;
+    left: 5%;
+    width: 90%;
+    background-color: white;
+    list-style: none;
+    border-radius: 0.5rem;
+    z-index: 20;
+    box-shadow: 0 3px 6px rgba(122, 122, 122, 0.5);
+  }
+  #navbar .menu-items li {
+    padding: 1.5rem 1rem;
+    border-bottom: thin solid rgba(122, 122, 122, 0.2);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    border-radius: 0 0 0.5rem 0;
+  }
+  #navbar .menu-items li:hover {
+    background-color: #f1f1f150;
+    box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.25);
+    color: #147b74;
+  }
+
+  .about-introducion p {
+    font-size: 0.9rem;
+  }
 }
 /* Desktop layout */
 @media (min-width: 780px) {
