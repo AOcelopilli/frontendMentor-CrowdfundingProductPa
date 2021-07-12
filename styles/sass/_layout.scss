@@ -10,6 +10,19 @@
   padding: 1rem;
 }
 
+body.modal {
+  &::before {
+    @include elementBefore;
+    background-color: rgba($color: $main-black, $alpha: 0.5);
+    min-height: 100%;
+    width: 100%;
+    transform: translate(0);
+    position: fixed;
+    z-index: 10;
+    @include showElemenet;
+  }
+}
+
 h1,
 h2,
 h3,
@@ -115,6 +128,15 @@ p {
 
   .project {
     @extend %card;
+
+    &.invalid {
+      opacity: 0.5;
+      pointer-events: none;
+
+      button {
+        background-color: $main-black-50;
+      }
+    }
   }
 
   .project-info {
@@ -173,6 +195,15 @@ p {
       .project-actions {
         height: 20vh;
         padding-top: 1rem;
+      }
+    }
+
+    &.invalid {
+      opacity: 0.5;
+      pointer-events: none;
+
+      button {
+        background-color: $main-black-50;
       }
     }
 
@@ -417,19 +448,6 @@ p {
 
 /* Mobile layout */
 @media (max-width: 780px) {
-  body.modal {
-    &::before {
-      @include elementBefore;
-      background-color: rgba($color: $main-black, $alpha: 0.5);
-      min-height: 100%;
-      width: 100%;
-      transform: translate(0);
-      position: fixed;
-      z-index: 10;
-      @include showElemenet;
-    }
-  }
-
   #header {
     background-image: url(../../images/image-hero-mobile.jpg);
     height: 50vh;
@@ -559,9 +577,180 @@ p {
 }
 /* Desktop layout */
 @media (min-width: 780px) {
+  p {
+    font-size: 0.8rem;
+  }
   #header {
     background-image: url(../../images/image-hero-desktop.jpg);
+    height: 40vh;
   }
 
-  /* TODO: desktop version */
+  #main-container {
+    width: 55vw;
+    text-align: center;
+  }
+
+  #introduction {
+    .actions {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    button {
+      &:last-child {
+        width: 30%;
+
+        &.active {
+          color: $main-cyan-dark;
+
+          &::before {
+            background-image: url(../../images/icon-bookmark-green.svg);
+          }
+        }
+      }
+    }
+  }
+
+  #metrics {
+    span {
+      font-size: 1.5rem;
+      padding: 0 1rem;
+    }
+
+    p {
+      font-size: 0.75rem;
+      padding: 0 1rem;
+    }
+
+    .metrics-data {
+      display: flex;
+      width: 100%;
+      justify-content: space-evenly;
+      margin: 2rem 0;
+
+      & > * {
+        padding: 0 1rem;
+        border-right: thin solid rgba($color: $main-black-50, $alpha: 0.25);
+        text-align: left;
+        width: 33%;
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+  }
+
+  #about {
+    .project {
+      padding: 1rem 2rem;
+    }
+
+    .project-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .project-actions {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+
+      .goal {
+        p {
+          display: flex;
+          align-items: flex-start;
+        }
+      }
+
+      button {
+        width: 10rem;
+        height: 2.8rem;
+      }
+    }
+  }
+
+  #modal-back-container {
+    width: 70%;
+
+    button {
+      right: 20%;
+    }
+
+    .project {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      padding: 1rem 0;
+
+      & > p {
+        position: absolute;
+        top: 1%;
+        right: 5%;
+      }
+
+      &.active {
+        .project-actions {
+          height: max-content;
+        }
+      }
+
+      &:first-child {
+        .pledge {
+          flex-direction: row;
+        }
+
+        &.active {
+          .project-actions {
+            height: 10vh;
+          }
+        }
+      }
+    }
+
+    .project-info {
+      padding-top: 1rem;
+      flex-direction: row;
+
+      & > * {
+        margin: 0 1rem;
+      }
+
+      input[type="checkbox"] {
+        top: 35%;
+        left: 0;
+      }
+    }
+
+    .project-desc {
+      p {
+        margin-left: 4rem;
+      }
+    }
+
+    .project-actions {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 1rem;
+
+      input[type="submit"] {
+        height: 3rem;
+        width: 8rem;
+      }
+
+      input[type="number"] {
+        padding-left: 3rem;
+      }
+    }
+  }
+
+  #modal-success {
+    width: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-height: 40vh;
+  }
 }

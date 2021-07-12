@@ -26,6 +26,34 @@ html {
   padding: 1rem;
 }
 
+body.modal::before {
+  content: "";
+  background: no-repeat center;
+  height: 5vh;
+  width: 5vh;
+  top: 0;
+  left: 0;
+  transform: translateX(-50%);
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  min-height: 100%;
+  width: 100%;
+  transform: translate(0);
+  position: fixed;
+  z-index: 10;
+  animation: show 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+@keyframes show {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
 h1,
 h2,
 h3,
@@ -91,13 +119,19 @@ p {
   cursor: pointer;
   font-weight: bold;
   box-shadow: 0px 2px 3px rgba(122, 122, 122, 0.75);
-  transition: box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   margin: 0 0.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
 }
 #introduction button:hover {
   box-shadow: 0px 2px 6px #555555;
+  background-color: #147b74;
+}
+#introduction button:active {
+  box-shadow: 0px 0px 2px #555555;
+  transform: scale(0.9);
+  background-color: #147b74;
 }
 #introduction button:last-child {
   background-color: rgba(122, 122, 122, 0.2);
@@ -150,6 +184,13 @@ p {
   width: 100%;
   margin: 0 auto;
 }
+#about .project.invalid {
+  opacity: 0.5;
+  pointer-events: none;
+}
+#about .project.invalid button {
+  background-color: #7a7a7a;
+}
 #about .project-info span {
   color: #3cb4ac;
   font-weight: 500;
@@ -170,7 +211,7 @@ p {
   cursor: pointer;
   font-weight: bold;
   box-shadow: 0px 2px 3px rgba(122, 122, 122, 0.75);
-  transition: box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   margin: 0 0.5rem;
   font-weight: bold;
   width: 60%;
@@ -178,6 +219,12 @@ p {
 }
 #about .project-actions button:hover {
   box-shadow: 0px 2px 6px #555555;
+  background-color: #147b74;
+}
+#about .project-actions button:active {
+  box-shadow: 0px 0px 2px #555555;
+  transform: scale(0.9);
+  background-color: #147b74;
 }
 
 /* #about */
@@ -240,6 +287,13 @@ p {
 #modal-back .project.active .project-actions {
   height: 20vh;
   padding-top: 1rem;
+}
+#modal-back .project.invalid {
+  opacity: 0.5;
+  pointer-events: none;
+}
+#modal-back .project.invalid button {
+  background-color: #7a7a7a;
 }
 #modal-back .project:first-child.active .project-actions {
   height: 30vh;
@@ -444,7 +498,7 @@ p {
   cursor: pointer;
   font-weight: bold;
   box-shadow: 0px 2px 3px rgba(122, 122, 122, 0.75);
-  transition: box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   margin: 0 0.5rem;
   font-weight: bold;
   width: 44%;
@@ -452,6 +506,13 @@ p {
 #modal-back-container .project-actions input[type=number]:hover,
 #modal-back-container .project-actions input[type=submit]:hover {
   box-shadow: 0px 2px 6px #555555;
+  background-color: #147b74;
+}
+#modal-back-container .project-actions input[type=number]:active,
+#modal-back-container .project-actions input[type=submit]:active {
+  box-shadow: 0px 0px 2px #555555;
+  transform: scale(0.9);
+  background-color: #147b74;
 }
 #modal-back-container .project-actions input[type=number] {
   background-color: white;
@@ -526,45 +587,23 @@ p {
   cursor: pointer;
   font-weight: bold;
   box-shadow: 0px 2px 3px rgba(122, 122, 122, 0.75);
-  transition: box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   margin: 0 0.5rem;
   font-weight: bold;
   width: 40%;
 }
 #modal-success .success-actions button:hover {
   box-shadow: 0px 2px 6px #555555;
+  background-color: #147b74;
+}
+#modal-success .success-actions button:active {
+  box-shadow: 0px 0px 2px #555555;
+  transform: scale(0.9);
+  background-color: #147b74;
 }
 
 /* Mobile layout */
 @media (max-width: 780px) {
-  body.modal::before {
-    content: "";
-    background: no-repeat center;
-    height: 5vh;
-    width: 5vh;
-    top: 0;
-    left: 0;
-    transform: translateX(-50%);
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.5);
-    min-height: 100%;
-    width: 100%;
-    transform: translate(0);
-    position: fixed;
-    z-index: 10;
-    animation: show 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  }
-  @keyframes show {
-    from {
-      visibility: hidden;
-      opacity: 0;
-    }
-    to {
-      visibility: visible;
-      opacity: 1;
-    }
-  }
-
   #header {
     background-image: url(../../images/image-hero-mobile.jpg);
     height: 50vh;
@@ -723,11 +762,141 @@ p {
 }
 /* Desktop layout */
 @media (min-width: 780px) {
-  #header {
-    background-image: url(../../images/image-hero-desktop.jpg);
+  p {
+    font-size: 0.8rem;
   }
 
-  /* TODO: desktop version */
+  #header {
+    background-image: url(../../images/image-hero-desktop.jpg);
+    height: 40vh;
+  }
+
+  #main-container {
+    width: 55vw;
+    text-align: center;
+  }
+
+  #introduction .actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  #introduction button:last-child {
+    width: 30%;
+  }
+  #introduction button:last-child.active {
+    color: #147b74;
+  }
+  #introduction button:last-child.active::before {
+    background-image: url(../../images/icon-bookmark-green.svg);
+  }
+
+  #metrics span {
+    font-size: 1.5rem;
+    padding: 0 1rem;
+  }
+  #metrics p {
+    font-size: 0.75rem;
+    padding: 0 1rem;
+  }
+  #metrics .metrics-data {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin: 2rem 0;
+  }
+  #metrics .metrics-data > * {
+    padding: 0 1rem;
+    border-right: thin solid rgba(122, 122, 122, 0.25);
+    text-align: left;
+    width: 33%;
+  }
+  #metrics .metrics-data > *:last-child {
+    border-right: none;
+  }
+
+  #about .project {
+    padding: 1rem 2rem;
+  }
+  #about .project-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #about .project-actions {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #about .project-actions .goal p {
+    display: flex;
+    align-items: flex-start;
+  }
+  #about .project-actions button {
+    width: 10rem;
+    height: 2.8rem;
+  }
+
+  #modal-back-container {
+    width: 70%;
+  }
+  #modal-back-container button {
+    right: 20%;
+  }
+  #modal-back-container .project {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    padding: 1rem 0;
+  }
+  #modal-back-container .project > p {
+    position: absolute;
+    top: 1%;
+    right: 5%;
+  }
+  #modal-back-container .project.active .project-actions {
+    height: max-content;
+  }
+  #modal-back-container .project:first-child .pledge {
+    flex-direction: row;
+  }
+  #modal-back-container .project:first-child.active .project-actions {
+    height: 10vh;
+  }
+  #modal-back-container .project-info {
+    padding-top: 1rem;
+    flex-direction: row;
+  }
+  #modal-back-container .project-info > * {
+    margin: 0 1rem;
+  }
+  #modal-back-container .project-info input[type=checkbox] {
+    top: 35%;
+    left: 0;
+  }
+  #modal-back-container .project-desc p {
+    margin-left: 4rem;
+  }
+  #modal-back-container .project-actions {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
+  #modal-back-container .project-actions input[type=submit] {
+    height: 3rem;
+    width: 8rem;
+  }
+  #modal-back-container .project-actions input[type=number] {
+    padding-left: 3rem;
+  }
+
+  #modal-success {
+    width: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-height: 40vh;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

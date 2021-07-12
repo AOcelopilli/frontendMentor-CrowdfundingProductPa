@@ -7,7 +7,10 @@ const d = document,
   $modalBack = d.getElementById("modal-back"),
   $modalSuccessBtn = d.getElementById("modal-success-ok"),
   $modalSuccess = d.getElementById("modal-success"),
-  $form = d.getElementById("form");
+  $form = d.getElementById("form"),
+  $email = d.getElementById("email"),
+  $pledge = d.getElementById("pledge"),
+  $btnBookmark = d.getElementById("btn-bookmark");
 
 d.addEventListener("click", (e) => {
   /* Show modal menu mobile */
@@ -105,15 +108,15 @@ d.addEventListener("click", (e) => {
     d.querySelector("[data-2-modal]").classList.remove("active");
     d.querySelector("[data-3-modal]").classList.remove("active");
   }
+
+  if (e.target == $btnBookmark) {
+    $btnBookmark.classList.toggle("active");
+  }
 });
 
 // Handle submit of form to show "succes modal"
 $form.addEventListener("submit", (e) => {
   e.preventDefault();
-
-  console.log($modalSuccess);
-
-  console.log("Form");
 
   $modalBack.classList.remove("modal");
 
@@ -121,4 +124,17 @@ $form.addEventListener("submit", (e) => {
   $modalSuccess.scrollIntoView();
 
   $form.reset();
+});
+
+// Add require to email input when checkbox is checked
+d.addEventListener("change", (e) => {
+  if (e.target == $pledge) {
+    if ($pledge.checked) {
+      $email.required = true;
+      console.log("checked");
+    } else {
+      $email.required = false;
+      console.log("no checked");
+    }
+  }
 });

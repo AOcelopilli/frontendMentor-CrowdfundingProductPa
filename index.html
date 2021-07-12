@@ -37,7 +37,7 @@
         <p>A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
         <div class="actions">
           <button id="back-project">Back this project</button>
-          <button>Bookmark</button>
+          <button id="btn-bookmark">Bookmark</button>
         </div>
       </section> <!-- Introduction -->
 
@@ -112,7 +112,7 @@
             </div>
           </div> <!-- project -->
 
-          <div class="project">
+          <div class="project invalid">
             <div class="project-info">
               <h3>Mahogany Special Edition</h3>
               <span>Pledge $200 or more</span>
@@ -128,7 +128,7 @@
               <div class="goal">
                 <p><span>0</span> left</p>
               </div>
-              <button data-3>Select Reward</button>
+              <button data-3>Out of stock</button>
             </div>
           </div> <!-- project -->
         </div>
@@ -162,7 +162,8 @@
               <p>Enter your email</p>
               <div class="pledge">
                 <input type="email" name="email" id="email"
-                  pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$">
+                  pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
+                  title="This is not a valid email">
                 <input type="submit" value="Continue">
               </div>
             </div>
@@ -219,7 +220,7 @@
             </div>
           </div> <!-- project -->
 
-          <div class="project" data-3-modal>
+          <div class="project invalid" data-3-modal>
             <div class="project-info">
               <input type="checkbox"" name=" project" id="Mahogany">
               <label for="Mahogany">Mahogany Special Edition</label>
