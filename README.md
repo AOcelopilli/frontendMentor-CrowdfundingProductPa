@@ -12,9 +12,7 @@ This is a solution to the [Crowdfunding product page challenge on Frontend Mento
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 
 ## Overview
@@ -32,38 +30,35 @@ Users should be able to:
 
 ### Screenshot
 
-![]()
+![](images/crofundingLandingPage.png)
+
+This is a preview of my result in a desktop layout.
 
 
 ### Links
 
-- Solution URL: [Link]()
-- Live Site URL: [Link]()
+- Solution URL: [Link](https://www.frontendmentor.io/solutions/crowfounding-product-page-html-sass-js-NFvIszc5D)
+- Live Site URL: [Link](https://aocelopilli.github.io/frontendMentor-CrowdfundingProductPa/)
 
 ## My process
 
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
+- Sass
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
 
 
 ### What I learned
-
+I learned a few things about Sass, I'm keep practicing with this tool to domain it.
 
 ### Continued development
-
-
-### Useful resources
-
+In Sass I need to be more organize and use it more to find all the power of this tool.
 
 ## Author
 
-
-## Acknowledgments
-
-
-# frontendMentor-CrowdfundingProductPa
++ Website - [www.angelpineda.com.mx](https://www.angelpineda.com.mx)
++ Frontend Mentor - [@angelp495](https://www.frontendmentor.io/profile/angelp495)
++ Twitter - [@AOcelopilli](https://twitter.com/AOcelopilli)
