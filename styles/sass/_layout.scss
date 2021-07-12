@@ -61,7 +61,7 @@ p {
 
   &::before {
     @include elementBefore;
-    background-image: url(../../images/logo-mastercraft.svg);
+    background-image: url(./images/logo-mastercraft.svg);
     height: 10vh;
     width: 10vh;
     top: -5vh;
@@ -84,7 +84,7 @@ p {
 
       &::before {
         @include elementBefore;
-        background-image: url(../../images/icon-bookmark.svg);
+        background-image: url(./images/icon-bookmark.svg);
         width: 3rem;
         height: 3rem;
         border-radius: 50%;
@@ -234,7 +234,7 @@ p {
 
     &::before {
       @include elementBefore;
-      background-image: url(../../images/icon-close-modal.svg);
+      background-image: url(./images/icon-close-modal.svg);
       background-size: cover;
       height: 100%;
       width: 100%;
@@ -425,7 +425,7 @@ p {
   }
 
   .success-icon {
-    background: url(../../images/icon-check.svg) no-repeat center;
+    background: url(./images/icon-check.svg) no-repeat center;
     background-size: cover;
     height: 10vh;
     width: 10vh;
@@ -449,7 +449,7 @@ p {
 /* Mobile layout */
 @media (max-width: 780px) {
   #header {
-    background-image: url(../../images/image-hero-mobile.jpg);
+    background-image: url(./images/image-hero-mobile.jpg);
     height: 50vh;
   }
 
@@ -530,7 +530,7 @@ p {
 
       &::before {
         @include elementBefore;
-        background-image: url(../../images/icon-hamburger.svg);
+        background-image: url(./images/icon-hamburger.svg);
         background-size: cover;
         height: 100%;
         width: 100%;
@@ -581,7 +581,7 @@ p {
     font-size: 0.8rem;
   }
   #header {
-    background-image: url(../../images/image-hero-desktop.jpg);
+    background-image: url(./images/image-hero-desktop.jpg);
     height: 40vh;
   }
 
@@ -604,7 +604,7 @@ p {
           color: $main-cyan-dark;
 
           &::before {
-            background-image: url(../../images/icon-bookmark-green.svg);
+            background-image: url(./images/icon-bookmark-green.svg);
           }
         }
       }

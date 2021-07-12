@@ -98,7 +98,7 @@ p {
   left: 0;
   transform: translateX(-50%);
   position: absolute;
-  background-image: url(../../images/logo-mastercraft.svg);
+  background-image: url(./images/logo-mastercraft.svg);
   height: 10vh;
   width: 10vh;
   top: -5vh;
@@ -148,7 +148,7 @@ p {
   left: 0;
   transform: translateX(-50%);
   position: absolute;
-  background-image: url(../../images/icon-bookmark.svg);
+  background-image: url(./images/icon-bookmark.svg);
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
@@ -337,7 +337,7 @@ p {
   left: 0;
   transform: translateX(-50%);
   position: absolute;
-  background-image: url(../../images/icon-close-modal.svg);
+  background-image: url(./images/icon-close-modal.svg);
   background-size: cover;
   height: 100%;
   width: 100%;
@@ -566,7 +566,7 @@ p {
   }
 }
 #modal-success .success-icon {
-  background: url(../../images/icon-check.svg) no-repeat center;
+  background: url(./images/icon-check.svg) no-repeat center;
   background-size: cover;
   height: 10vh;
   width: 10vh;
@@ -605,7 +605,7 @@ p {
 /* Mobile layout */
 @media (max-width: 780px) {
   #header {
-    background-image: url(../../images/image-hero-mobile.jpg);
+    background-image: url(./images/image-hero-mobile.jpg);
     height: 50vh;
   }
 
@@ -710,7 +710,7 @@ p {
     left: 0;
     transform: translateX(-50%);
     position: absolute;
-    background-image: url(../../images/icon-hamburger.svg);
+    background-image: url(./images/icon-hamburger.svg);
     background-size: cover;
     height: 100%;
     width: 100%;
@@ -767,7 +767,7 @@ p {
   }
 
   #header {
-    background-image: url(../../images/image-hero-desktop.jpg);
+    background-image: url(./images/image-hero-desktop.jpg);
     height: 40vh;
   }
 
@@ -787,7 +787,7 @@ p {
     color: #147b74;
   }
   #introduction button:last-child.active::before {
-    background-image: url(../../images/icon-bookmark-green.svg);
+    background-image: url(./images/icon-bookmark-green.svg);
   }
 
   #metrics span {
