@@ -467,7 +467,6 @@ p {
 }
 
 #modal-success {
-  display: none;
   background-color: white;
   position: absolute;
   top: 20%;
@@ -476,6 +475,34 @@ p {
   min-height: 50vh;
   text-align: center;
   padding: 1rem;
+  scroll-margin: 2rem;
+  z-index: 20;
+  animation: hide 0.3s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+@keyframes hide {
+  from {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+    display: block;
+  }
+}
+#modal-success.modal {
+  animation: show 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+@keyframes show {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 #modal-success .success-icon {
   background: url(../../images/icon-check.svg) no-repeat center;
@@ -699,6 +726,8 @@ p {
   #header {
     background-image: url(../../images/image-hero-desktop.jpg);
   }
+
+  /* TODO: desktop version */
 }
 
 /*# sourceMappingURL=styles.css.map */

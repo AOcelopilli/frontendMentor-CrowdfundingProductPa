@@ -5,7 +5,9 @@ const d = document,
   $navBtn = d.getElementById("navbar-btn-hamburguer"),
   $backBtn = d.getElementById("back-project"),
   $modalBack = d.getElementById("modal-back"),
-  $modalSuccess = d.getElementById("modal-success");
+  $modalSuccessBtn = d.getElementById("modal-success-ok"),
+  $modalSuccess = d.getElementById("modal-success"),
+  $form = d.getElementById("form");
 
 d.addEventListener("click", (e) => {
   /* Show modal menu mobile */
@@ -94,6 +96,29 @@ d.addEventListener("click", (e) => {
   if (e.target.matches("input[type='checkbox']")) {
     e.target.parentNode.parentNode.classList.toggle("active");
   }
+
+  if (e.target == $modalSuccessBtn) {
+    $modalSuccess.classList.remove("modal");
+    $body.classList.toggle("modal");
+
+    d.querySelector("[data-1-modal]").classList.remove("active");
+    d.querySelector("[data-2-modal]").classList.remove("active");
+    d.querySelector("[data-3-modal]").classList.remove("active");
+  }
 });
 
-// TODO: Handle submit of form to show "succes modal"
+// Handle submit of form to show "succes modal"
+$form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  console.log($modalSuccess);
+
+  console.log("Form");
+
+  $modalBack.classList.remove("modal");
+
+  $modalSuccess.classList.add("modal");
+  $modalSuccess.scrollIntoView();
+
+  $form.reset();
+});

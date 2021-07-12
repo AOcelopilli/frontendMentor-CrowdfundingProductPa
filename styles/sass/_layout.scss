@@ -376,7 +376,6 @@ p {
 }
 
 #modal-success {
-  display: none;
   @extend %card;
   background-color: white;
   position: absolute;
@@ -386,6 +385,13 @@ p {
   min-height: 50vh;
   text-align: center;
   padding: 1rem;
+  scroll-margin: 2rem;
+  z-index: 20;
+  @include hideElemenet;
+
+  &.modal {
+    @include showElemenet;
+  }
 
   .success-icon {
     background: url(../../images/icon-check.svg) no-repeat center;
@@ -556,4 +562,6 @@ p {
   #header {
     background-image: url(../../images/image-hero-desktop.jpg);
   }
+
+  /* TODO: desktop version */
 }
